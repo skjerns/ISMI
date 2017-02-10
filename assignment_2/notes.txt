@@ -1,0 +1,2 @@
+31 features
+[g, gx, gy, (gxy, gyx, they re the same), gxx, gyy] x 5 scales
