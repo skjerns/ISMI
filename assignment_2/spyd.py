@@ -41,43 +41,26 @@ tra_imgs = sorted(get_file_list(tra_img_dir, 'tif')[0])
 tra_msks = sorted(get_file_list(tra_msk_dir, 'gif')[0])
 tra_lbls = sorted(get_file_list(tra_lbl_dir, 'gif')[0])
 
-
-# In[4]:
-
-def show_image(idx, imgs, msks, lbls):
-    img = np.asarray(Image.open(imgs[idx]))
-    msk = np.asarray(Image.open(msks[idx]))
-    lbl = np.asarray(Image.open(lbls[idx]))
-    img_g = img[:,:,1].squeeze().astype(float)
-    plt.subplot(1,3,1)
-    plt.imshow(img); plt.title('RGB image {}'.format(idx+1))
-    plt.subplot(1,3,2)
-    plt.imshow(msk, cmap='gray'); plt.title('Mask {}'.format(idx+1))
-    plt.subplot(1,3,3)
-    plt.imshow(lbl, cmap='gray'); plt.title('Manual annotation {}'.format(idx+1))
-    plt.show()
-
-
-
 # In[6]:
 from skimage.filters import gabor_kernel
+
 def gauss_filter(sigma, x0=0.0, y0=0.0):
     x_vec = np.arange(-sigma*3, sigma*3, 1.0) 
     y_vec = np.arange(-sigma*3, sigma*3, 1.0)
     xx,yy = np.meshgrid(x_vec,y_vec)
-    kernel = (1/(2*np.pi*sigma**2)) * np.exp(-(xx**2+yy**2)/(2*sigma**2))
-    return kernel
-
-
-def get_gaus_deriv(g):
+    
+    g = (1/(2*np.pi*sigma**2)) * np.exp(-(xx**2+yy**2)/(2*sigma**2))
+    
     gx  = np.gradient(g,axis=0)
     gxx = np.gradient(g,axis=0)
     gxy = np.gradient(g,axis=1)
     
     gy  = np.gradient(g,axis=1)
     gyy = np.gradient(g,axis=1)
-    gyx = np.gradient(g,axis=0)
-    return gx, gy, gxx, gyy, gxy, gyx
+    
+    return g, gx, gxx, gxy, gy, gyy
+
+
 
 def get_gabors():
     kernels = []
@@ -90,26 +73,6 @@ def get_gabors():
                 kernels.append(kernel)
     return kernels
 
-# In[7]:
-
-# code to test and visualize the gaussian kernel
-def visualize_gaussian_kernel(sigma):
-    """ 
-        Visualizes the Gaussian kernel defined above for a given sigma.
-    """    
-    gaussian_kernel = gauss_filter(sigma) #calculate the Gaussian filter kernel
-
-    fig = plt.figure()
-    ax = Axes3D(fig)
-    x_dim, y_dim = gaussian_kernel.shape
-    x,y = np.meshgrid(range(x_dim), range(y_dim))
-    offset_x = floor(x_dim/2)
-    offset_y = floor(y_dim/2)
-
-    x = x - float(offset_x)
-    y = y - float(offset_y)  
-    #ax.plot_surface(x, y, gaussian_kernel, antialiased=True, cmap=cm.jet, linewidth=0)
-    ax.plot_surface(x, y, gaussian_kernel, rstride=1, cstride=1, cmap=cm.jet)
 
 # In[9]:
 from scipy.ndimage.filters import sobel
@@ -135,20 +98,15 @@ def extract_features(img, sigmas, n_features=51):
     # >>> YOUR CODE STARTS HERE <<<
     i = 1
     for s in sigmas:
-        g = gauss_filter(s)
-        gx, gy, gxx, gyy, gxy, gyx = get_gaus_deriv(g)
-        features[:,:,i] = scipy.signal.fftconvolve(img_g, g, mode='same') ;i+=1
-        features[:,:,i] = scipy.signal.fftconvolve(img_g, gx, mode='same') ;i+=1
-        features[:,:,i] = scipy.signal.fftconvolve(img_g, gy, mode='same') ;i+=1
-        features[:,:,i] = scipy.signal.fftconvolve(img_g, gxx, mode='same') ;i+=1
-        features[:,:,i] = scipy.signal.fftconvolve(img_g, gyy, mode='same') ;i+=1
-        features[:,:,i] = scipy.signal.fftconvolve(img_g, gxy, mode='same') ;i+=1
-                
+        gfilters = gauss_filter(s)
+        for gf in gfilters:
+            features[:,:,i] = scipy.signal.fftconvolve(img_g, gf, mode='same') ;i+=1
+
     for gabor in gabors:
         features[:,:,i] = scipy.signal.fftconvolve(img_g, gabor, mode='same') ;i+=1
                 
-    features[:,:,i] = sobel(img_g, axis=0) ;i+=1     #32
-    features[:,:,i] = sobel(img_g, axis=1) ;i+=1     #33
+    features[:,:,i] = sobel(img_g, axis=0) ;i+=1
+    features[:,:,i] = sobel(img_g, axis=1) ;i+=1
     features[:,:,i] = sobel(img_g, axis=0)+sobel(img_g, axis=1) ;i+=1
     features[:,:,i] = feature.canny(img_g, sigma=.3)
     # >>> YOUR CODE ENDS HERE <<<  
@@ -162,7 +120,7 @@ for idx in range(len(tra_msks)):
     smpl += np.sum(np.asarray(Image.open(tra_msks[idx]))==255)
     
 # set the parameters for your CAD system here
-n_samples_per_class_per_image = 1000 # how many positive/negative pixels per image in the training set?
+n_samples_per_class_per_image = 10000 # how many positive/negative pixels per image in the training set?
 n_classes = 2           # how many classes in this problem?
 sigmas = [1,2,4,8,16]   # what values of sigma?
 n_features = 51         # how many features?
@@ -419,7 +377,7 @@ for f in range(len(tes_imgs)):
 # In[ ]:
 
 user = {'username': 'S.Kern', 'password' : '5CCN6PW2'} # enter you username and password
-description = {'notes' : 'hungarian closed forests'}
+description = {'notes' : 'hungarian 10k samples'}
 
 submit_results (user, os.path.abspath(result_output_folder), description)
 
