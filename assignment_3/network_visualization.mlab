@@ -1,0 +1,527 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module OrthoSwapFlip {
+  internal  {
+    frame = "1854 816 120 56"
+    moduleGroupName = "Change view direction"
+    windows  {
+      window _automatic {
+        geometry = "1231 259 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+      }
+      window _default {
+        geometry = "928 674 249 246"
+        sizeHint = "249 246"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = OrthoSwapFlip1
+    useGlobalInputImage = FALSE
+    mode = UseViewDir
+    useViewDir = TRUE
+    view = Coronal
+    useOrientation = FALSE
+    orientation = XYZ
+    flipHorizontal = FALSE
+    flipVertical = FALSE
+    flipDepth = FALSE
+    autoPageSizeX = TRUE
+    pageX = 1
+    autoPageSizeY = TRUE
+    pageY = 1
+    autoPageSizeZ = TRUE
+    pageZ = 1
+  }
+}
+module OrthoSwapFlip {
+  internal  {
+    frame = "1706 816 112 56"
+    moduleGroupName = "Change view direction"
+    windows  {
+      window _automatic {
+        geometry = "717 269 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+      }
+      window _default {
+        geometry = "843 446 249 246"
+        sizeHint = "249 246"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = OrthoSwapFlip
+    useGlobalInputImage = FALSE
+    mode = UseViewDir
+    useViewDir = TRUE
+    view = Coronal
+    useOrientation = FALSE
+    orientation = XYZ
+    flipHorizontal = FALSE
+    flipVertical = FALSE
+    flipDepth = FALSE
+    autoPageSizeX = TRUE
+    pageX = 1
+    autoPageSizeY = TRUE
+    pageY = 1
+    autoPageSizeZ = TRUE
+    pageZ = 1
+  }
+}
+module SoBackground {
+  internal  {
+    frame = "1802 601 112 56"
+    moduleGroupName = "other settings"
+  }
+  fields  {
+    instanceName = SoBackground
+    rotate = TRUE
+    flip = FALSE
+    on = TRUE
+    depthBuffer = TRUE
+  }
+}
+module SoGVRVolumeRenderer {
+  internal  {
+    frame = "1958 593 168 56"
+    moduleGroupName = "other settings"
+    windows  {
+      window _default {
+        geometry = "1094 271 346 596"
+        sizeHint = "346 596"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoGVRVolumeRenderer
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+    on = TRUE
+    autoLoad = TRUE
+    interactiveQuality = 0.1
+    staticQuality = 1
+    interactiveSamplingRate = 1
+    staticSamplingRate = 1
+    blendMode = Blend
+    octreeNodeSize = NODE_SIZE_32
+    octreeParentComputationMethod = Rank
+    octreeParentComputationRank = 4
+    currentTimePoint = 0
+    maxTimePoint = 0
+    force8bit = FALSE
+    filterVolumeData = FilterCubic
+    filterLut = TRUE
+    subVolumeStartX = 0
+    subVolumeStartY = 0
+    subVolumeStartZ = 0
+    subVolumeEndX = 440
+    subVolumeEndY = 475
+    subVolumeEndZ = 262
+    zbuffer = TRUE
+    permitClipping = TRUE
+    drawOnPlanes = TRUE
+    sizeOutputX = 440
+    sizeOutputY = 475
+    sizeOutputZ = 262
+    incrementalUpdate = TRUE
+    highQualityStaticUpdate = FALSE
+    staticRenderingAfterInteractionOnly = FALSE
+    adaptQualityToWindowSize = TRUE
+    rayCastTextureStorage = RayCastTextureStorage_Auto
+    renderMode = Illuminated
+    useImageCacheFile = FALSE
+    imageCacheFilename = ""
+    greyCenter = 0.91799998
+    greyWidth = 0.2
+    greyInvert = FALSE
+    alphaCenter = 0.89999998
+    alphaWidth = 0.78799999
+    alphaInvert = FALSE
+    colorFactor = "1 0 0"
+    alphaFactor = 1
+    enhancementAlphaMix = 0.25
+    boundaryEnhancement = FALSE
+    boundaryEnhancementFactor = 1
+    boundaryEnhancementExponent = 1
+    boundaryEnhancementGradientBias = 0
+    silhouetteEnhancement = FALSE
+    silhouetteEnhancementExponent = 1
+    silhouetteEnhancementFactor = 1
+    toneShading = FALSE
+    toneShadingWarmColor = "0.674509823322296 0.533333361148834 0.141176477074623"
+    toneShadingColdColor = "0 0 0.400000005960464"
+    toneShadingWarmDiffuse = 0.60000002
+    toneShadingColdDiffuse = 0.2
+    toneShadingAngle = 45
+    materialAmbient = 0.903
+    materialDiffuse = 0.40000001
+    materialSpecular = 0.40000001
+    materialSpecularity = 108.2
+    reduceLightingOnLowGradientMagnitude = FALSE
+    light1Enabled = TRUE
+    light1DiffuseIntensity = 1
+    light1SpecularIntensity = 1
+    light1Color = "1 1 1"
+    light1PolarPhi = 0
+    light1PolarRho = 0
+    light2Enabled = FALSE
+    light2DiffuseIntensity = 1
+    light2SpecularIntensity = 1
+    light2Color = "1 1 1"
+    light2PolarPhi = 45
+    light2PolarRho = 45
+    light3Enabled = FALSE
+    light3DiffuseIntensity = 1
+    light3SpecularIntensity = 1
+    light3Color = "1 1 1"
+    light3PolarPhi = -45
+    light3PolarRho = 0
+    gradientQuality = GradientQualityAutomatic
+    selectionAlphaThreshold = 0.2
+    selectedPoint1 = "-1 -1 -1"
+    selectedWorldPoint1 = "-1 -1 -1"
+    selectionActive = FALSE
+    useWorldCoords = TRUE
+  }
+}
+module SoExaminerViewer {
+  internal  {
+    frame = "1954 382 136 56"
+    moduleGroupName = "3D viewer of airways"
+    windows  {
+      window _viewer {
+        geometry = "996 269 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoExaminerViewer
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+    border = FALSE
+    background = "0 0 0"
+    transparency = BLEND
+    antialiasing = FALSE
+    antialiasingNumPasses = 1
+    hiResRendering = FALSE
+    useSampleBuffers = FALSE
+    numSamples = 8
+    grabKeyFocus = TRUE
+    snapshotFormat = SNAPSHOT_RGB
+    outputAviFile = ""
+    autoRedrawWhenRecording = TRUE
+    frameRate = 7
+    frameRateAvi = 15
+    status = ready
+    outputSnapshotFile = none
+    outputSnapshotFileWritten = none
+    autoIncreaseFile = TRUE
+    showSnapshotWithShell = FALSE
+    snapCount = 0
+    inputDevicesList = ""
+    headlight = TRUE
+    decoration = TRUE
+    popupMenuEnabled = FALSE
+    viewing = TRUE
+    autoClipping = TRUE
+    drawStyle = VIEW_AS_IS
+    interactiveDrawStyle = VIEW_LOW_COMPLEXITY
+    viewAllFlag = FALSE
+    initialCameraOrientation = CAMERA_KEEP_AS_IS
+    applyCameraOrientation = CAMERA_KEEP_AS_IS
+    cameraType = CAMERA_PERSPECTIVE
+    autoApplyUserSettingOrientation = FALSE
+    userSettingOrientation = "0 0 1 0"
+    automaticViewAll = FALSE
+    storeCurrentState = TRUE
+    saveCamera = TRUE
+    cursor = TRUE
+    isCameraStored = TRUE
+    perspective = TRUE
+    stereoViewing = FALSE
+    stereoOffset = 3
+    height = 0.78539819
+    position = "320.722259521484 -450.7734375 -180.778793334961"
+    orientation = "0.91437816619873 0.319212168455124 0.249030664563179 1.62083303928375"
+    nearDistance = 392.68384
+    farDistance = 712.93103
+    focalDistance = 552.64777
+    forceRedrawOnInteraction = FALSE
+    button1events = TO_VIEWER
+    button2events = TO_VIEWER
+    button3events = TO_VIEWER
+    keyEvents = TO_VIEWER
+    animationEnabled = FALSE
+    feedback = FALSE
+    feedbackSize = 32
+    mouseInteraction = ""
+    rotationAxis = "0 1 0"
+    rotationAngle = 360
+    rotationSteps = 80
+    rotationCurrentStep = 0
+    recordRotation = TRUE
+  }
+}
+module itkImageFileReader {
+  internal  {
+    frame = "1905 1015 144 64"
+    moduleGroupName = "Loading of CT scans and airway segmentation"
+    windows  {
+      window _default {
+        geometry = "818 372 299 395"
+        sizeHint = "299 395"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AirwaySegmentation
+    fileDataType = int16
+    autoDetermineDataType = FALSE
+    correctSubVoxelShift = TRUE
+    fileDimension = 3
+    info = "Invalid path"
+    numDims = 0
+    fileType = TypeNotApplicable
+    componentType = ""
+    pixelType = UNKNOWNPIXELTYPE
+    loaderType = ""
+    outputMetaDataStr = ""
+    unresolvedFileName = ""
+  }
+}
+module SoView2DOverlay {
+  internal  {
+    frame = "1550 593 136 56"
+    moduleGroupName = "other settings"
+    windows  {
+      window _default {
+        geometry = "524 388 436 386"
+        sizeHint = "436 386"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoView2DOverlay
+    interactionProviderID = ""
+    drawingOn = TRUE
+    editingOn = TRUE
+    maskValid = TRUE
+    fixZOn = TRUE
+    color = "1 1 1"
+    selectionTolerance = 4
+    needsValidVoxel = TRUE
+    button1 = IGNORED
+    button2 = IGNORED
+    button3 = IGNORED
+    shift = IGNORED
+    control = IGNORED
+    alt = IGNORED
+    wantsAllEvents = TRUE
+    wantsKeyEvents = TRUE
+    wantsMouseWheelEvents = FALSE
+    setEventHandled = FALSE
+    ignoreHandledEvents = FALSE
+    createNewMode = FALSE
+    renderOnSlab = TRUE
+    clipToSlice = TRUE
+    cursorShape = UNDEFINED_CURSOR
+    cacheTextures = TRUE
+    blendMode = BLEND_BLEND
+    overwriteCurrentTimePoint = FALSE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    inheritFilterMode = TRUE
+    lutPrecision = VIEW2D_LUT_AUTO
+    alphaFactor = 1
+    baseColor = "1 0 0"
+    useWorldCoords = TRUE
+    applyLut = TRUE
+    isCheckerTiling = FALSE
+    checkerTileSize = 2
+    areCheckerTilesInverted = FALSE
+  }
+}
+module View2D {
+  internal  {
+    frame = "1604 383 120 56"
+    moduleGroupName = "2D Viewer of CT"
+    windows  {
+      window _default {
+        geometry = "968 30 944 1002"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+      window _automatic {
+        geometry = "717 269 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_ZT
+    cineDirection = CINE_FORWARD
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    cineAlwaysReset = TRUE
+    snapToCenter = TRUE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    plane = "0 1 0 8.13275909423828"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 0.01254772
+    lutWidth = 0.047349885
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = World
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = TRUE
+    hiResRendering = TRUE
+  }
+}
+module itkImageFileReader {
+  internal  {
+    frame = "1620 1016 136 64"
+    moduleGroupName = "Loading of CT scans and airway segmentation"
+    windows  {
+      window _default {
+        geometry = "818 372 879 395"
+        sizeHint = "299 395"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = CTScan
+    fileDataType = int16
+    autoDetermineDataType = FALSE
+    correctSubVoxelShift = TRUE
+    fileDimension = 3
+    info = "Invalid path"
+    numDims = 0
+    fileType = TypeNotApplicable
+    componentType = ""
+    pixelType = UNKNOWNPIXELTYPE
+    loaderType = ""
+    outputMetaDataStr = ""
+    unresolvedFileName = ""
+  }
+}
+connections  {
+  OrthoSwapFlip1.input0 = AirwaySegmentation.output0
+  OrthoSwapFlip1.view = OrthoSwapFlip.view
+  OrthoSwapFlip.input0 = CTScan.output0
+  OrthoSwapFlip.view = OrthoSwapFlip1.view
+  SoGVRVolumeRenderer.image = OrthoSwapFlip1.output0
+  SoGVRVolumeRenderer.colorFactor = SoView2DOverlay.baseColor
+  SoExaminerViewer.children = "SoBackground.self SoGVRVolumeRenderer.self"
+  SoView2DOverlay.image = OrthoSwapFlip1.output0
+  SoView2DOverlay.baseColor = SoGVRVolumeRenderer.colorFactor
+  View2D.inImage = OrthoSwapFlip.output0
+  View2D.inInvPreLUT = SoView2DOverlay.self
+}
+networkModel  {
+  parentItems  {
+    0  {
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 31
+        objectName = "2D Viewer of CT"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 39
+        objectName = "3D viewer of airways"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 47
+        objectName = "Loading of CT scans and airway segmentation"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 62
+        objectName = "Change view direction"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 88
+        objectName = "other settings"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+    }
+  }
+}
