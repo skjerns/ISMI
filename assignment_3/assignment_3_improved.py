@@ -19,6 +19,7 @@
 #  4) The best way to control for explosion would be to check the tree paths
 #     and see if there are 'bottlenecks' connecting two large regions.
 #     To implement this algorithm would have required a bit more time though.
+#  5) We also tried several approaches using Otsu, local Otsu and Watershed segmentation without much succes.
 #
 ###############
 
