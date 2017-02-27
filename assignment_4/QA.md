@@ -1,3 +1,5 @@
+![ROC](https://github.com/skjerns/ISMI/blob/master/assignment_4/ROC%20_curve.png?raw=true)
+
 **(Question 1)** *Look at the generated txt file including the ROC analysis
 results. Which observer has achieved the best performance? Reader,
 CAD, or Reader+CAD? What is your justification for this?*
